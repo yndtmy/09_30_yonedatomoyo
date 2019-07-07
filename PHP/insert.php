@@ -1,6 +1,6 @@
 <?php
 include('functions.php');//functions.phpに接続
-var_dump($_POST);
+// var_dump($_POST);
 // exit();//PHPをここでストップ
 // 入力チェック
 if(
@@ -35,14 +35,47 @@ $drink=$_POST['drink'];//同上
 $date=$_POST['date'];//同上
 $comment=$_POST['comment'];//同上
 
+// Fileアップロードチェック
+if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] == 0) {
+  // ファイルをアップロードしたときの処理
+  // ①送信ファイルの情報取得
+    $uploadedFileName = $_FILES['upfile']['name'];//ファイル名を取ってくる
+    $tempPathName = $_FILES['upfile']['tmp_name'];//tmpフォルダをとってくる
+    $fileDirectoryPath = '../upload/';//uploadにアップロードする
+
+
+  // ②File名の準備
+    $extension = pathinfo($uploadedFileName, PATHINFO_EXTENSION);//$uploadedFileNameの拡張子だけをもってくる
+    $uniqueName = date('YmdHis').md5(session_id()) . "." . $extension;//日付と文字列.拡張子を表示
+    $fileNameToSave = $fileDirectoryPath.$uniqueName;//ファイルをそこに保存する
+
+
+  // ③サーバの保存領域に移動&④表示
+  if(is_uploaded_file($tempPathName)){
+        if(move_uploaded_file($tempPathName, $fileNameToSave)){//一時保存のところにデータがあれば
+        chmod($fileNameToSave, 0644);//権限を0644に変更
+        $img = '<img src="'. $fileNameToSave . '" >';// imgタグを設定
+        }else{//一時保存のところにデータがなければ
+            // $img='保存に失敗しました';//こう表示
+            exit('保存に失敗しました');
+        }
+    }else{
+        exit('画像があがってないです');
+        // $img='画像があがってないです';//こう表示
+    }
+} else {
+    // ファイルをアップしていないときの処理
+    // $img = '画像が送信されていません';
+    exit('画像が送信されていません');
+}
 
 //DB接続
 $pdo=db_conn();//functions.phpに全部入力したからこれでOK
 
 
 //データ登録SQL作成
-$sql ='INSERT INTO 07_30_yonedatomoyo(id,name1,address1,url1,toilet,toilet_comment,slide,sandbox,swing,ball,drink,date1,comment)
-VALUES(NULL, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, sysdate(), :a11)';
+$sql ='INSERT INTO 07_30_yonedatomoyo(id,name1,address1,url1,toilet,toilet_comment,slide,sandbox,swing,ball,drink,date1,comment,img)
+VALUES(NULL, :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, sysdate(), :a11, :img)';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':a1',$name, PDO::PARAM_STR);    //Integer（数値の場合 PDO::PARAM_INT)
@@ -56,6 +89,7 @@ $stmt->bindValue(':a8',$swing, PDO::PARAM_STR);
 $stmt->bindValue(':a9',$ball, PDO::PARAM_STR);
 $stmt->bindValue(':a10',$drink, PDO::PARAM_STR);
 $stmt->bindValue(':a11',$comment, PDO::PARAM_STR);
+$stmt->bindValue(':img', $fileNameToSave, PDO::PARAM_STR);
 $status = $stmt->execute();
 // exit();
 //４．データ登録処理後

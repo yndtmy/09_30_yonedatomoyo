@@ -71,7 +71,7 @@ if ($status==false) {
             <a class="btn" href="logout.php">ログアウト</a>
         </div>
 
-        <form method="post" action="update.php">
+        <form method="post" action="update.php" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="name">名前</label>
@@ -136,9 +136,13 @@ if ($status==false) {
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">送信</button>
+                <label for="date">写真アップ</label>
+                <input type="file" class="form-control" id="date" name="upfile" accept="image/*" capture="camera">
             </div>
 
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">送信</button>
+            </div>
 
             <!-- idは変えたくない = ユーザーから見えないようにする-->
             <input type="hidden" name="id" value="<?=$rs['id']?>">

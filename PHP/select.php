@@ -88,6 +88,7 @@ if ($status==false) {
         $view .= '<P>'."入力日：".$result['date1'].'</P>';//入力日時
 
         $view .='<iframe id="map" src="http://maps.google.co.jp/maps?q='.$result['name1'].'&output=embed&t=m&z=15&hl=ja" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300" height="300"></iframe>';//名前で検索したグーグルマップが表示される
+        $view .= '<img src="'.$result['img'].'" alt="" height="150px">';
 
         $view .= '<a href="detail.php?id='.$result[id].'" class="edit_btn">修正</a>'; //修正ボタン
         $view .= '<a href="delete.php?id='.$result[id].'" class="delete_btn">消去</a>';//消去ボタン

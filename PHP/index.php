@@ -9,6 +9,42 @@ include('functions.php');
 chk_ssid();
 
 $menu = menu();
+
+//Fileアップロードチェック
+// var_dump($_FILES);
+if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] ==0) {
+    // ファイルをアップロードしたときの処理
+    // ①送信ファイルの情報取得
+    $uploadedFileName = $_FILES['upfile']['name'];//ファイル名を取ってくる
+    $tempPathName = $_FILES['upfile']['tmp_name'];//tmpフォルダをとってくる
+    $fileDirectoryPath = 'upload/';//uploadにアップロードする
+    // var_dump($uploadedFileName);
+    // var_dump($tempPathName);
+
+    // ②File名の準備
+    $extension = pathinfo($uploadedFileName, PATHINFO_EXTENSION);//$uploadedFileNameの拡張子だけをもってくる
+    $uniqueName = date('YmdHis').md5(session_id()) . "." . $extension;//日付と文字列.拡張子を表示
+    $fileNameToSave = $fileDirectoryPath.$uniqueName;//ファイルをそこに保存する
+    // var_dump($fileNameToSave);    
+    // exit();
+
+    // ③サーバの保存領域に移動&④表示
+    if(is_uploaded_file($tempPathName)){
+        if(move_uploaded_file($tempPathName, $fileNameToSave)){//一時保存のところにデータがあれば
+        chmod($fileNameToSave, 0644);//権限を0644に変更
+        $img = '<img src="'. $fileNameToSave . '" >';// imgタグを設定
+        }else{//一時保存のところにデータがなければ
+            $img='保存に失敗しました';//こう表示
+        }
+    }else{
+        $img='画像があがってないです';//こう表示
+    }
+} else {
+    // ファイルをアップしていないときの処理
+    $img = '画像が送信されていません';
+}
+
+
 ?>
 
 
@@ -46,10 +82,7 @@ $menu = menu();
             <a class="btn" href="logout.php">ログアウト</a>
         </div>
 
-        <form action="insert.php" method="post">
-            <!-- postでおくる -->
-
-
+        <form action="insert.php" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="name">名前</label>
@@ -111,6 +144,11 @@ $menu = menu();
             <div class="form-group">
                 <label for="comment">コメント</label>
                 <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="date">写真アップ</label>
+                <input type="file" class="form-control" id="date" name="upfile" accept="image/*" capture="camera">
             </div>
 
 
