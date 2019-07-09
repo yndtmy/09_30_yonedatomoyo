@@ -19,7 +19,7 @@ $pdo=db_conn();//functions.phpに全部入力したからこれでOK
     <html lang="ja">
 
     <head>
-        <title>公園共有APP</title>
+        <title>PARK APP</title>
         <link href="../css/main.css" rel="stylesheet">
 
         <style>
@@ -33,7 +33,7 @@ $pdo=db_conn();//functions.phpに全部入力したからこれでOK
     <body>
 
         <div class="header_box">
-            <a class="top_btn">公園にいこう</a>
+            <img src="../img/park.png" alt="" width="60px">
             <?php if ($_SESSION['kanri_flg'] == '1') : ?>
             <a class="btn" href="select.php">　公園一覧　</a>
             <a class="btn" href="index.php">　公園登録　</a>
