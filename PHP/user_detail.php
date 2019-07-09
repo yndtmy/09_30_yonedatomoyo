@@ -37,9 +37,9 @@ if ($status==false) {
 
     <head>
         <title>公園共有APP</title>
-        <link href="../css/main.css">
+        <link href="../css/main.css" rel="stylesheet">
         <style>
-            div {
+            <style>div {
                 padding: 10px;
                 font-size: 12px;
             }
@@ -51,16 +51,16 @@ if ($status==false) {
         <div class="header_box">
             <a class="top_btn">公園にいこう</a>
             <?php if ($_SESSION['kanri_flg'] == '1') : ?>
-            <a class="btn" href="select.php">公園一覧</a>
-            <a class="btn" href="index.php">公園登録</a>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="select.php">　公園一覧　</a>
+            <a class="btn" href="index.php">　公園登録　</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
 
             <?php else: ?>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
             <?php endif; ?>
-            <a class="btn" href="logout.php">ログアウト</a>
+            <a class="btn" href="logout.php">　ログアウト　</a>
         </div>
 
         <form action="user_update.php" method="post">
@@ -82,7 +82,7 @@ if ($status==false) {
             <input class="radio_box" type="radio" id="life_flg" name="life_flg" value="0">アクティブ
             <input class="radio_box" type="radio" id="life_flg" name="life_flg" value="1">非アクティブ
             <br>
-            <button type="submit">送信</button>
+            <button type="submit" class="btn-blue">送信</button>
 
 
             <!-- idは変えたくない = ユーザーから見えないようにする-->

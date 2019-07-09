@@ -29,13 +29,16 @@ if ($status==false) {
     //http://php.net/manual/ja/pdostatement.fetch.php
     while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-        $view .= '<P>'."ニックネーム：".$result['nn'].'</P>';//ニックネームをhtmlのviewで表示
-        $view .= '<P>'."ログインID：".$result['lid'].'</P>';
-        $view .= '<P>'."ログインPW：".$result['lpw'].'</P>';
+        $view .='<div class="kakomi">';
+        
+            $view .= '<P>'."ニックネーム：".$result['nn'].'</P>';//ニックネームをhtmlのviewで表示
+            $view .= '<P>'."ログインID：".$result['lid'].'</P>';
+            $view .= '<P>'."ログインPW：".$result['lpw'].'</P>';
 
-        $view .= '<a href="user_detail.php?id='.$result[id].'" class="edit_btn">修正</a>'; //修正ボタン
-        $view .= '<a href="user_delete.php?id='.$result[id].'" class="delete_btn">消去</a>';//消去ボタン
-        // $view .= '<img src="../img/line.png">';//ライン
+            $view .= '<a href="user_detail.php?id='.$result[id].'" class="btn">　修正　</a>'; //修正ボタン
+            $view .= '<a href="user_delete.php?id='.$result[id].'" class="btn">　消去　</a>';//消去ボタン
+        
+        $view .='</div>';
         
     }
 }
@@ -48,7 +51,7 @@ if ($status==false) {
 
     <head>
         <title>公園共有APP</title>
-        <link href="../css/main.css">
+        <link href="../css/main.css" rel="stylesheet">
         <style>
             div {
                 padding: 10px;
@@ -61,16 +64,16 @@ if ($status==false) {
         <div class="header_box">
             <a class="top_btn">公園にいこう</a>
             <?php if ($_SESSION['kanri_flg'] == '1') : ?>
-            <a class="btn" href="select.php">公園一覧</a>
-            <a class="btn" href="index.php">公園登録</a>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="select.php">　公園一覧　</a>
+            <a class="btn" href="index.php">　公園登録　</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
 
             <?php else: ?>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
             <?php endif; ?>
-            <a class="btn" href="logout.php">ログアウト</a>
+            <a class="btn" href="logout.php">　ログアウト　</a>
         </div>
 
 

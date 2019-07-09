@@ -52,11 +52,8 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] ==0) {
     <html lang="ja">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>公園共有APP</title>
-        <link href="../css/main.css">
+        <link href="../css/main.css" rel="stylesheet">
         <style>
             div {
                 padding: 10px;
@@ -70,16 +67,16 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] ==0) {
         <div class="header_box">
             <a class="top_btn">公園にいこう</a>
             <?php if ($_SESSION['kanri_flg'] == '1') : ?>
-            <a class="btn" href="select.php">公園一覧</a>
-            <a class="btn" href="index.php">公園登録</a>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="select.php">　公園一覧　</a>
+            <a class="btn" href="index.php">　公園登録　</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
 
             <?php else: ?>
-            <a class="btn" href="user_select.php">会員一覧</a>
-            <a class="btn" href="user_index.php">会員登録</a>
+            <a class="btn" href="user_select.php">　会員一覧　</a>
+            <a class="btn" href="user_index.php">　会員登録　</a>
             <?php endif; ?>
-            <a class="btn" href="logout.php">ログアウト</a>
+            <a class="btn" href="logout.php">　ログアウト　</a>
         </div>
 
         <form action="insert.php" method="post" enctype="multipart/form-data">
@@ -152,8 +149,8 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] ==0) {
             </div>
 
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">送信</button>
+            <div>
+                <button type="submit" class="btn-blue">送信</button>
             </div>
         </form>
 

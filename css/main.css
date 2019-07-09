@@ -1,7 +1,7 @@
-.radio_box{
+/* .radio_box{
     display:flex;
     flex-direction:column;
-}
+} */
 
 .icon{
     display:flex;
@@ -28,3 +28,61 @@
     height: 50px;
 
 }
+
+/* 送信とかのボタン(水色)------------------------------------------ */
+.btn-blue {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #00BCD4;
+  border: solid 2px #00BCD4;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-blue:hover {
+  background: #00BCD4;
+  color: white;
+}
+
+/* メニューのボタン------------------------------------------ */
+/* 消去・修正のボタン------------------------------------------ */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+  text-decoration: none;
+  color: #00bcd4;  
+}
+
+.btn:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius: 3px;
+  background:#00bcd4;
+  transition: .2s;
+}
+
+.btn:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}
+
+
+/* セレクタ囲み------------------------------------------ */
+.kakomi {
+  margin: 2em auto; 
+ padding: 1em 1.5em;
+ width: 90%; /*幅の調節*/
+ color: #777777; /* 文字色 */
+ background-color: #fff; /* 背景色 */
+ border: 4px solid #00bcd4; /*線の太さ・色*/
+ border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
