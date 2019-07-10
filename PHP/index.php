@@ -81,70 +81,70 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] ==0) {
 
         <form action="insert.php" method="post" enctype="multipart/form-data">
 
-            <div class="form-group">
-                <label for="name">名前</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="name">公園の名前</label>
                 <input type="text" class="form-control" id="name" name="name">
             </div>
-            <div class="form-group">
-                <label for="address">住所</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="address">住所</label>
                 <input type="text" class="form-control" id="address" name="address">
             </div>
-            <div class="form-group">
-                <label for="url">URL</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="url">URL</label>
                 <input type="text" class="form-control" id="url" name="url">
             </div>
-            <div class="form-group">
-                <label for="toilet">トイレ</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="toilet">トイレ</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="toilet" name="toilet" value="1">ある
                 <input class="radio_box" type="radio" class="form-control" id="toilet" name="toilet" value="2">ない
             </div>
-            <div class="form-group">
-                <label for="toilet_comment">トイレ情報</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="toilet_comment">トイレ情報</label>
                 <br>
                 <textarea class="form-control" id="toilet_comment" rows="1" name="toilet_comment"></textarea>
             </div>
-            <div class="form-group">
-                <label for="slide">すべりだい</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="slide">すべりだい</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="slide" name="slide" value="1">ある
                 <input class="radio_box" type="radio" class="form-control" id="slide" name="slide" value="2">ない
             </div>
-            <div class="form-group">
-                <label for="sandbox">砂場</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="sandbox">砂場</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="sandbox" name="sandbox" value="1">ある
                 <input class="radio_box" type="radio" class="form-control" id="sandbox" name="sandbox" value="2">ない
             </div>
-            <div class="form-group">
-                <label for="swing">ブランコ</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="swing">ブランコ</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="swing" name="swing" value="1">ある
                 <input class="radio_box" type="radio" class="form-control" id="swing" name="swing" value="2">ない
             </div>
-            <div class="form-group">
-                <label for="ball">ボール遊び</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="ball">ボール遊び</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="ball" name="ball" value="1">OK
                 <input class="radio_box" type="radio" class="form-control" id="ball" name="ball" value="2">NG
             </div>
-            <div class="form-group">
-                <label for="drink">自動販売機</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="drink">自動販売機</label>
                 <br>
                 <input class="radio_box" type="radio" class="form-control" id="drink" name="drink" value="1">ある
                 <input class="radio_box" type="radio" class="form-control" id="drink" name="drink" value="2">ない
             </div>
-            <div class="form-group">
-                <label for="date">更新日</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="date">更新日</label>
                 <input type="date" class="form-control" id="date" name="date">
             </div>
-            <div class="form-group">
-                <label for="comment">コメント</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="comment">コメント</label>
                 <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="date">写真アップ</label>
+            <div class="cp_iptxt">
+                <label class="ef" for="date">写真アップ</label>
                 <input type="file" class="form-control" id="date" name="upfile" accept="image/*" capture="camera">
             </div>
 

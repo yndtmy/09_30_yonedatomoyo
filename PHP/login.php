@@ -32,17 +32,17 @@
 
 
     <form method="post" action="login_act.php">
-        <div class="form-group">
-            <label for="lid">LoginID</label>
+        <div class="cp_iptxt">
+            <label for="lid">ログインID</label>
             <input type="text" class="form-control" id="lid" name='lid'>
         </div>
-        <div class="form-group">
-            <label for="lpw">Pass</label>
+        <div class="cp_iptxt">
+            <label for="lpw">パスワード</label>
             <input type="password" class="form-control" id="lpw" name='lpw'>
         </div>
 
-        <div class="form-group">
-            <button type="submit" class="btn-blue">Submit</button>
+        <div class="cp_iptxt">
+            <button type="submit" class="btn-blue">ログイン</button>
         </div>
     </form>
 

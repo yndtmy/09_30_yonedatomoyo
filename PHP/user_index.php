@@ -49,29 +49,29 @@ $pdo=db_conn();//functions.phpに全部入力したからこれでOK
 
         <form action="user_insert.php" method="post">
 
-            <div class="form-group">
+            <div class="cp_iptxt">
                 <label for="nn">ニックネーム</label>
                 <input for="nn" type="text" id="nn" name="nn" value="">
             </div>
 
-            <div class="form-group">
+            <div class="cp_iptxt">
                 <label for="lid">ログインID</label>
                 <input for="lid" type="text" id="lid" name="lid">
             </div>
 
-            <div class="form-group">
+            <div class="cp_iptxt">
                 <label for="lpw">ログインPW</label>
                 <input for="lpw" type="password" id="lpw" name="lpw">
             </div>
 
-            <div class="form-group">
+            <div class="cp_iptxt">
                 <label for="kanri_flg">管理</label>
                 <br>
                 <input class="radio_box" type="radio" id="kanri_flg" name="kanri_flg" value="0">一般
                 <input class="radio_box" type="radio" id="kanri_flg" name="kanri_flg" value="1">管理者
             </div>
 
-            <div class="form-group">
+            <div class="cp_iptxt">
                 <label for="life_flg">アクティブ</label>
                 <br>
                 <input class="radio_box" type="radio" id="life_flg" name="life_flg" value="0">アクティブ
